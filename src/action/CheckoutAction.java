@@ -6,6 +6,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.CartDAO;
 import pojo.Product;
 
 public class CheckoutAction extends ActionSupport{
@@ -37,6 +38,8 @@ public void setPhoneNo(String phoneNo) {
 		System.out.println("Address: "+address);
 		System.out.println("phone no: "+phoneNo);
 		System.out.println("checking out...");
+		CartDAO cartDAO=new CartDAO();
+		cartDAO.addProduct();
 		return "success";
 	}
 	public void validate() {
