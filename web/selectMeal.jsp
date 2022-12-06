@@ -11,6 +11,7 @@
 </head>
 <body>
 <div class="container-fluid" align="center" style="color:white; background-color: black; min-height: 100vh">
+	<%@ include file="header.jsp" %>
 <h1>Choose your yummy meal...</h1>
 
 <div class="row">

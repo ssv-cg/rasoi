@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<%@ include file="header.jsp" %>
 <h1>Kindly Confirm your order:</h1>
 <div class="container" align="center">
 <s:label value="Name:"/>

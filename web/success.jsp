@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<%@ include file="header.jsp" %>
 <h1>Order Placed!!!</h1>
 </body>
 </html>
