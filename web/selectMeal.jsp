@@ -7,6 +7,7 @@
 <meta charset="ISO-8859-1">
 <title>Select Meal</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container-fluid" align="center" style="color:white; background-color: black; min-height: 100vh">
