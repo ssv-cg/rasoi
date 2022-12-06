@@ -23,15 +23,20 @@
 <div class="card-body">
 <img height=200 width=200 src=<s:property value="#product.productImage"/>/>
 </div> 
-    <div class="card-footer">Rs 
+    <div class="card-footer">
+     <s:property value="#product.productName"/><br/>
+    Rs 
     <s:property value="#product.productPrice"/>/- 
-    <s:submit  value="addToCart" action="%{myurl}"/>
+   
     </div>
 </div>
 </s:a>
 </div>
 </s:iterator>
 </div>
+<a href="orderDetails">
+Checkout
+</a>
 </div>
 
 

@@ -3,17 +3,33 @@ package action;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
+
+import com.opensymphony.xwork2.ActionContext;
+
 import pojo.Product;
 
 public class CartAction {
 	String id;
-	List<Product> selectedProducts=new ArrayList<Product>();
-	ProductAction productAction=new ProductAction();
+	List<Product> selectedProducts;
+	Integer CartSize;
 	public String execute() {
 	return "success";	
 	}
 	
 	
+
+	public List<Product> getSelectedProducts() {
+		return selectedProducts;
+	}
+
+
+
+	public void setSelectedProducts(List<Product> selectedProducts) {
+		this.selectedProducts = selectedProducts;
+	}
+
+
 
 	public String getId() {
 		return id;
@@ -27,20 +43,33 @@ public class CartAction {
 
 
 
-	public List<Product> getSelectedProducts() {
-		return selectedProducts;
+	public Integer getCartSize() {
+		return CartSize;
 	}
 
-	public void setSelectedProducts(List<Product> selectedProducts) {
-		this.selectedProducts = selectedProducts;
+
+
+	public void setCartSize(Integer cartSize) {
+		CartSize = cartSize;
 	}
+
+
+
 
 	public String addToCart() {
-		
-		productAction.initializeProducts();
-		selectedProducts.add(productAction.productList.get(Integer.parseInt(id)-1));
+		List<Product> selectedProducts = (List<Product>) ServletActionContext.getRequest().getSession().getAttribute("selectedProducts");
+		List<Product> productsList = (List<Product>) ServletActionContext.getRequest().getSession().getAttribute("productsList");
+		if(selectedProducts ==null) {
+			System.out.println("Selected Products empty");
+			selectedProducts = new ArrayList<Product>();
+		}
+
+		selectedProducts.add(productsList.get(Integer.parseInt(id)-1));
 		System.out.println("adding "+id+" to cart...");
 		System.out.println(selectedProducts);
+		System.out.println("Cart Size: "+selectedProducts.size());
+		ServletActionContext.getRequest().getSession().setAttribute("selectedProducts",selectedProducts);
+		setSelectedProducts(selectedProducts);
 		return "success";
 	}
 	

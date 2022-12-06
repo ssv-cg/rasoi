@@ -2,24 +2,42 @@
 <!DOCTYPE struts PUBLIC
     "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
     "http://struts.apache.org/dtds/struts-2.5.dtd">
-    
+
 <struts>
 	<package name="rasoiApp" extends="struts-default">
-	
+
 		<action name="loginAction" class="action.LoginAction">
 			<result name="success" type="redirect">/welcome.jsp
 			</result>
 			<result name="input">/login.jsp</result>
 		</action>
-		
-<action name="order" class="action.ProductAction">
-<result name="success">/selectMeal.jsp</result>
-</action>
 
-		<action name="addToCart" class="action.CartAction" method="addToCart">
-		<result name="success" type="redirectAction">order</result>
-		
+		<action name="logoutAction" class="action.LogoutAction">
+			<result name="input">/login.jsp</result>
 		</action>
+
+		<action name="order" class="action.ProductAction">
+			<result name="success">/selectMeal.jsp</result>
+		</action>
+
+		<action name="addToCart" class="action.CartAction"
+			method="addToCart">
+			<result name="success" type="redirectAction">order</result>
+
+		</action>
+		
+		<action name="orderDetails" class="action.OrderDetailsAction" >
+		<result name="success" >/checkout.jsp</result>
+		<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="checkoutAction" class="action.CheckoutAction" >
+		<result name="input">/checkout.jsp</result>
+		<result name="success">/success.jsp</result>
+		</action>
+
+
+
 	</package>
 
 </struts> 

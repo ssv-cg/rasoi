@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>These are product details</h1>
+<h1>Order Placed!!!</h1>
 </body>
 </html>

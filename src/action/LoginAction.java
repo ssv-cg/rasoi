@@ -1,5 +1,7 @@
 package action;
 
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport; 
 
 import dao.LoginDAO;
@@ -14,6 +16,7 @@ public class LoginAction extends ActionSupport{
 		String statusCode = "";
 		System.out.println("execute() method called");
 		boolean isUserValid = LoginDAO.isUserValid(new LoginInfo(userName, password));
+		ServletActionContext.getRequest().getSession().setAttribute("loggedinUser", userName);
 		if (isUserValid) {
 			statusCode = "success";
 		} else {

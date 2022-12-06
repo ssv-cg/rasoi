@@ -3,6 +3,8 @@ package action;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
+
 import pojo.Product;
 
 public class ProductAction{
@@ -22,6 +24,7 @@ public class ProductAction{
 		productList.add(new Product("3","Pasta",100,"'assets/pasta.jpg'"));
 		productList.add(new Product("4","Waffle",100,"'assets/waffle.jpg'"));
 		productList.add(new Product("5","Milkshake",100,"'assets/milkshake.jpg'"));
+		ServletActionContext.getRequest().getSession().setAttribute("productsList",productList);
 	}
 	public List<Product> getProductList() {
 		return productList;
