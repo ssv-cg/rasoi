@@ -5,7 +5,15 @@
 
 <struts>
 	<package name="rasoiApp" extends="struts-default">
-
+<interceptors>
+			<interceptor class="interceptors.LoginInterceptor"
+				name="loginInterceptor" />
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="loginInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="loginStack"/>
 		<action name="loginAction" class="action.LoginAction">
 			<result name="success" type="redirectAction">order
 			</result>
@@ -18,6 +26,7 @@
 
 		<action name="order" class="action.ProductAction">
 			<result name="success">/selectMeal.jsp</result>
+				<result name="input">/login.jsp</result>
 		</action>
 
 		<action name="addToCart" class="action.CartAction"
