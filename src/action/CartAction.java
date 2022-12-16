@@ -13,6 +13,19 @@ public class CartAction {
 	String id;
 	List<Product> selectedProducts;
 	Integer CartSize;
+	Integer itemsInCart;
+	public Integer getItemsInCart() {
+		return itemsInCart;
+	}
+
+
+
+	public void setItemsInCart(Integer itemsInCart) {
+		this.itemsInCart = itemsInCart;
+	}
+
+
+
 	public String execute() {
 	return "success";	
 	}
@@ -70,6 +83,7 @@ public class CartAction {
 		System.out.println("Cart Size: "+selectedProducts.size());
 		ServletActionContext.getRequest().getSession().setAttribute("selectedProducts",selectedProducts);
 		setSelectedProducts(selectedProducts);
+		ServletActionContext.getRequest().getSession().setAttribute("itemsInCart",selectedProducts.size());
 		return "success";
 	}
 	

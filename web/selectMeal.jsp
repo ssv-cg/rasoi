@@ -10,25 +10,30 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container-fluid" align="center" style="color:white; background-color: black; min-height: 100vh">
 	<%@ include file="header.jsp" %>
-<h1>Choose your yummy meal...</h1>
+<div class="container-fluid" align="center" style="color:white; background-color: black; min-height: 100vh">
 
+<h1>Choose your yummy meal...</h1>
+<div class="row">
+<div style="float:right">
+items in cart:  <s:property  value="itemsInCart"/>
+</div>
+</div>
 <div class="row">
 <s:iterator value="productList" var="product">
 
 <div class="col">
-<s:a action="addToCart">
+<s:a  action="addToCart">
 <s:param name="id" value="%{#product.productId}"/>
 
 <div class="card m-3" style="background-color: black">
 <div class="card-body">
 <img height=200 width=200 src=<s:property value="#product.productImage"/>/>
 </div> 
-    <div class="card-footer">
-     <s:property value="#product.productName"/><br/>
+    <div class="card-footer link">
+     <s:property  value="#product.productName"/><br/>
     Rs 
-    <s:property value="#product.productPrice"/>/- 
+    <s:property  value="#product.productPrice"/>/- 
    
     </div>
 </div>
@@ -36,7 +41,7 @@
 </div>
 </s:iterator>
 </div>
-<a href="orderDetails">
+<a class="btn btn-warning" href="orderDetails">
 Checkout
 </a>
 </div>

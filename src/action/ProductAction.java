@@ -8,7 +8,13 @@ import org.apache.struts2.ServletActionContext;
 import pojo.Product;
 
 public class ProductAction{
-
+	Integer itemsInCart; 
+	public Integer getItemsInCart() {
+		return itemsInCart;
+	}
+	public void setItemsInCart(Integer itemsInCart) {
+		this.itemsInCart = itemsInCart;
+	}
 	public String execute() {
 		System.out.println("initializing products");
 		initializeProducts();
@@ -25,6 +31,10 @@ public class ProductAction{
 		productList.add(new Product("4","Waffle",100,"'assets/waffle.jpg'"));
 		productList.add(new Product("5","Milkshake",100,"'assets/milkshake.jpg'"));
 		ServletActionContext.getRequest().getSession().setAttribute("productsList",productList);
+		itemsInCart=(Integer) ServletActionContext.getRequest().getSession().getAttribute("itemsInCart");
+		if(itemsInCart==null) {
+			itemsInCart=0;
+		}
 	}
 	public List<Product> getProductList() {
 		return productList;

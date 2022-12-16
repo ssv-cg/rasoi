@@ -13,10 +13,10 @@ if(session.getAttribute("loggedinUser") == null) {
 }
 %>
 
- <div class="topnav">
-  <a href="welcomeAction">Home</a>
-  <a href="order">Order Meal</a>
-  <a href="logoutAction" style="float:right">Logout</a>
+ <div class="container-fuild p-2" style="background-color:#ffc107;width:100%">
+
+  <a class="btn btn-primary" href="logoutAction" >Logout</a>
+  <a class="btn btn-primary" href="viewOrders" >View Orders</a>
 </div> 
 
 </body>

@@ -3,6 +3,7 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
     "http://struts.apache.org/dtds/struts-2.5.dtd">
 
+
 <struts>
 	<package name="rasoiApp" extends="struts-default">
 <interceptors>
@@ -13,6 +14,7 @@
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 		</interceptors>
+			
 		<default-interceptor-ref name="loginStack"/>
 		<action name="loginAction" class="action.LoginAction">
 			<result name="success" type="redirectAction">order
@@ -44,8 +46,9 @@
 		<result name="input">/checkout.jsp</result>
 		<result name="success">/success.jsp</result>
 		</action>
-
-
+<action name="viewOrders" class = "action.ViewOrdersAction">
+<result name="success">/viewOrders.jsp</result>
+</action>
 
 	</package>
 

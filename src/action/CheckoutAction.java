@@ -39,7 +39,7 @@ public void setPhoneNo(String phoneNo) {
 		System.out.println("phone no: "+phoneNo);
 		System.out.println("checking out...");
 		CartDAO cartDAO=new CartDAO();
-		cartDAO.addProduct();
+		cartDAO.addProduct(address,phoneNo);
 		return "success";
 	}
 	public void validate() {
